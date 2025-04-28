@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">UAP Library</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">UAP Central Library</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Rules for the Library users</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Library Circulation/Borrowing policy</a>
+        </div>
+      </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Borrowing Books</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Library Wifi</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Library Membership Activation</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
+
+      </li>
+        <li class="nav-item">
+
+          <a class="nav-link" href="#" >Login/Sign Up</a>
+
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+   <style>
+/* Navbar item styling */
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #d000ff; /* Hover করলে গোল্ড কালার হবে */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  background-color: #343a40; /* ডার্ক ব্যাকগ্রাউন্ড */
+  border: none;
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  min-width: 220px;
+  transform: scale(0.95);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.nav-item:hover .dropdown-menu {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #495057;
+  color: #c956d6;
+}
+
+/* Divider styling */
+.dropdown-divider {
+  background-color: #6c757d;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>This is footer..</footer>
+    <!-- Bootstrap JS (optional, only if you need Bootstrap JavaScript functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
