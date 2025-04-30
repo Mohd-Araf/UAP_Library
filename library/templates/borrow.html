@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrow</title>
+</head>
+<body>
+
+</body>
+</html>
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for i in borrowing%}
+<h1>{{i.name}}</h1>
+<h1>{{i.author}}</h1>
+
+
+{% endfor %}
+
+<a href="signup.html"></a>
+
+{% endblock %}
