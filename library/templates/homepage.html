@@ -3,7 +3,116 @@
 
 
 {% block content %}
-<h1>Welcome to UAP Library!</h1>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UAP Library</title>
+
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .library-heading {
+  font-size: 3rem;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d45edc, #37048e);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: electricGlow 3s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.library-heading:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes electricGlow {
+  0%, 95%, 100% {
+    text-shadow: none;
+  }
+  96% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #d45edc, 0 0 30px #37048e;
+  }
+  97% {
+    text-shadow: 0 0 15px #fff, 0 0 25px #d45edc, 0 0 35px #37048e;
+  }
+  98% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #d45edc, 0 0 30px #37048e;
+  }
+  99% {
+    text-shadow: 0 0 5px #fff;
+  }
+}
+
+
+  .search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Slightly lower than heading */
+    margin-bottom: 40px; /* Some space before next section */
+  }
+
+  .search-form form {
+    display: flex;
+    flex-wrap: nowrap;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .search-form input[type="search"] {
+    width: 320px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .search-form button {
+    background-color: #5e00c7;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .search-form button:hover {
+    background-color: #8c28ec;
+  }
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <h1 class="library-heading">Welcome to UAP Library!</h1>
+  <div class="search-form">
+  <form method="GET" action="https://www.google.com/search" target="_blank">
+    <input type="search" name="q" placeholder="Search" aria-label="Search">
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+
+</body>
+</html>
 
 
 

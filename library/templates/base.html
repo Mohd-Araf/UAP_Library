@@ -8,173 +8,67 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
+
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">UAP Library</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          About
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/bn/f/f3/%E0%A6%87%E0%A6%89%E0%A6%A8%E0%A6%BF%E0%A6%AD%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%B8%E0%A6%BF%E0%A6%9F%E0%A6%BF_%E0%A6%85%E0%A6%AC_%E0%A6%8F%E0%A6%B6%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE_%E0%A6%AA%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8%E0%A6%BF%E0%A6%AB%E0%A6%BF%E0%A6%95_%E0%A6%8F%E0%A6%B0_%E0%A6%B2%E0%A7%8B%E0%A6%97%E0%A7%8B.png?20240705115045" alt="UAP Logo"> UAP Library
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">UAP Central Library</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Rules for the Library users</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Library Circulation/Borrowing policy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'homepage' %}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">UAP Central Library</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Rules for the Library users</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Library Circulation/Borrowing policy</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Borrowing Books</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Library Wifi</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Library Membership Activation</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login/Sign Up</a>
+                </li>
+            </ul>
         </div>
-      </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Services
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Borrowing Books</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Library Wifi</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Library Membership Activation</a>
-        </div>
-      </li>
+    </nav>
 
-      <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
-
-      </li>
-        <li class="nav-item">
-
-          <a class="nav-link" href="#" >Login/Sign Up</a>
-
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
-
-   <style>
-/* Navbar item styling */
-.nav-item {
-  position: relative;
-}
-
-.nav-link {
-  color: #fff;
-  padding: 10px 20px;
-  font-weight: 600;
-  font-size: 18px;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #d000ff; /* Hover করলে গোল্ড কালার হবে */
-}
-
-/* Dropdown menu styling */
-.dropdown-menu {
-  background-color: #343a40; /* ডার্ক ব্যাকগ্রাউন্ড */
-  border: none;
-  border-radius: 10px;
-  padding: 10px 0;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  min-width: 220px;
-  transform: scale(0.95);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  position: absolute;
-}
-
-.nav-item:hover .dropdown-menu {
-  transform: scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Dropdown item styling */
-.dropdown-item {
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.dropdown-item:hover {
-  background-color: #495057;
-  color: #c956d6;
-}
-
-/* Divider styling */
-.dropdown-divider {
-  background-color: #6c757d;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-    <div class="container mt-4">
+    <div class="content-wrapper">
         {% block content %}
         {% endblock %}
     </div>
 
-
-
-
     <!-- Footer -->
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <footer>
+       <footer class="text-center text-lg-start bg-body-tertiary text-muted">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
 
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
+
   </section>
   <!-- Section: Social media -->
 
@@ -266,16 +160,154 @@
       <!-- Grid row -->
     </div>
   </section>
-  <!-- Section: Links  -->
+    </footer>
+<style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: url('https://cse.uap-bd.edu/static/assets/img/Resource/library2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2025 Created by:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Team-3</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: #5e00c7;
+        }
+
+        .navbar .navbar-brand {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .navbar-brand img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .navbar-nav {
+
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .navbar-nav .nav-item {
+
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d000ff;
+        }
+
+        .navbar-nav .dropdown-menu {
+            background-color: #c1d6e1;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 0;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+
+        .navbar-nav .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #ffffff;
+            color: #c956d6;
+        }
+
+footer {
+  background-image: url('#'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: white; /* Set text color to white for all footer content */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional for better readability */
+}
+
+footer a {
+  color: white; /* Set all links in the footer to white */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #007bff; /* Set hover color for links to blue */
+}
+
+footer h6 {
+  color: white; /* Set heading text color to white */
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+footer p {
+  color: white; /* Set paragraph text color to white */
+  font-size: 0.9rem;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .social-icons a {
+  font-size: 24px;
+  margin: 0 15px;
+  color: white; /* Social icon color */
+}
+
+footer .social-icons a:hover {
+  color: #007bff; /* Social icon hover color */
+}
+
+footer .footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer .footer-links li {
+  margin: 10px 0;
+}
+
+footer .footer-links a {
+  color: white; /* Ensure links in footer lists are white */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer .footer-links a:hover {
+  color: #5e00c7; /* Hover effect color for footer links */
+}
+</style>
+
 
     <!-- Bootstrap JS (optional, only if you need Bootstrap JavaScript functionality) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
