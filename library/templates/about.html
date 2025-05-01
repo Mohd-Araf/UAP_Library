@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  body {
+    background: url('/static/images/library_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .old-paper {
+    background: rgba(255, 248, 220, 0.95); /* parchment color */
+    border: 2px solid #d6b98c;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    color: #3b2f1e;
+    margin: 60px auto;
+    max-width: 1000px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  .old-paper h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    border-bottom: 2px dashed #c2a477;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    text-align: center;
+    color: #5b4321;
+    animation: slideDown 1s ease;
+  }
+
+  .old-paper p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-top: 15px;
+    animation: fadeIn 1.8s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="old-paper">
+    <h2>About Library</h2>
+    <p>
+      UAP takes pride in its newly renovated Central Library on the 9th floor of the city campus building. However, it is not only about the meticulously designed outlook of the library, which makes it comparable to any international library — UAP is committed to making the library experience of its users top-notch.
+    </p>
+    <p>
+      The Central Library continues to expand and develop its services and take new initiatives throughout the year to facilitate students to learn and acquire knowledge. It remains focused on making library services more accessible and fulfilling the needs of students and faculty.
+    </p>
+    <p>
+      All UAP students and faculty members have full access to the central library, which hosts a vast and diverse collection of books, journals, monographs, and periodicals. Each book is labeled and arranged systematically to ensure easy access without inconvenience.
+    </p>
+
+    <h2>Library Collections</h2>
+    <p>
+      The Central Library provides access to:
+      <ul>
+        <li>Books: 21,000 (approx.)</li>
+        <li>E-Journals: 30,000 (approx.)</li>
+        <li>E-books: 20,500 (approx.)</li>
+      </ul>
+      These include subscriptions via LiCoB and UDL (UGC).
+    </p>
+    <p>
+      Additionally, UAP students and faculty can access 71,196 e-books and 41,172 e-journals through the Research4Life database (HINARI, AGORA, ARDI, OARE, and GOALI) at no cost.
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .old-paper {
+  border: 2px solid #d6b98c;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    0 12px 35px rgba(0, 0, 0, 0.2);
+  font-family: 'Georgia', serif;
+  color: #3b2b1f;
+  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+      /* background-color: #7a7768; */
+  animation: fadeIn 1.5s ease-in;
+}
+
+.old-paper h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px dashed #c2a477;
+  padding-bottom: 10px;
+  color: #5b3a1e;
+  animation: slideDown 1s ease;
+}
+
+.old-paper ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.old-paper li {
+  margin: 15px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: #5e4027;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.old-paper li:hover {
+  transform: translateX(5px);
+  color: #a76f3f;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+
+<div class="container mt-5">
+  <div class="old-paper">
+    <h2>Library Rules & Regulations</h2>
+    <ul>
+      <li>Maintain silence inside the library.</li>
+      <li>No food or drinks allowed.</li>
+      <li>Mobile phones must be on silent mode.</li>
+      <li>Books must be returned on time to avoid fines.</li>
+      <li>Respect library property and other users.</li>
+      <li>Borrowing is limited to registered users only.</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

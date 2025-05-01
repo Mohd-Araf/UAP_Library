@@ -28,9 +28,9 @@
                         About
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">UAP Central Library</a>
+                        <a class="dropdown-item" href="{% url 'about' %}">UAP Central Library</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Rules for the Library users</a>
+                        <a class="dropdown-item" href="{% url 'library_rules' %}">Rules for the Library users</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Library Circulation/Borrowing policy</a>
                     </div>
@@ -62,106 +62,10 @@
         {% endblock %}
     </div>
 
-    <!-- Footer -->
-    <footer>
-       <footer class="text-center text-lg-start bg-body-tertiary text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 
-
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5" >
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>UAP Library
-          </h6>
-          <p>
-              UAP Central Library<br>
-              74/A, Green Road, Dhaka-1205<br>
-              9th floor, A Block, UAP<br>
-              University of Asia Pacific<br>
-              Dhaka, Bangladesh.<br>
-
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Library Timing
-          </h6>
-           <p>
-             Sunday to Thursday:
-             9.00 am - 9.00 pm
-             Only Saturday:<br>
-             9.00 am - 5.00 pm
-             Every Semester Break:
-             9.00 am - 7.00 pm
-             Friday Closed<br>
-             Library hours are subject to change.
-
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="https://www.uap-bd.edu/" class="text-reset">UAP Website</a>
-          </p>
-          <p>
-            <a href="https://admission.uap-bd.edu/Admission/Home.aspx" class="text-reset">UAP Admission</a>
-          </p>
-          <p>
-            <a href="https://www.facebook.com/UAPBDDhaka/" class="text-reset">Facebook Page</a>
-          </p>
-          <p>
-            <a href="https://crttc.uap-bd.edu/" class="text-reset">Center for Research </a>
-          </p>
-            <p>
-            <a href="https://www.uap-bd.edu/resource.php" class="text-reset">Restorers </a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> Deputy Librarian<br>
-          (Library in Charge)</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            d.librarian@uap-bd.edu
-          </p>
-          <p><i class="fas fa-phone me-3"></i> Tel:
-          +880-2-58157091-4 <br>
-          +880-2-58157096 <br>
-          (Ext.950; 952)
-          </p>
-          <p><i class="fas fa-print me-3"></i>Fax: +880-2-58157097</p>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-    </footer>
 <style>
+
+
         html, body {
             height: 100%;
             margin: 0;
@@ -220,7 +124,7 @@
         }
 
         .navbar-nav .dropdown-menu {
-            background-color: #c1d6e1;
+            background-color: #e9edef;
             border: none;
             border-radius: 10px;
             padding: 10px 0;
@@ -238,74 +142,19 @@
         }
 
         .navbar-nav .dropdown-item:hover {
-            background-color: #ffffff;
-            color: #c956d6;
+            background-color: #e9e4ea;
+            color: #da4f92;
         }
-
-footer {
-  background-image: url('#'); /* Replace with your image URL */
-  background-size: cover;
-  background-position: center;
-  padding: 60px 0;
-  color: white; /* Set text color to white for all footer content */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional for better readability */
+        .navbar-nav .nav-link {
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
-footer a {
-  color: white; /* Set all links in the footer to white */
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
 
-footer a:hover {
-  color: #007bff; /* Set hover color for links to blue */
-}
-
-footer h6 {
-  color: white; /* Set heading text color to white */
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-footer p {
-  color: white; /* Set paragraph text color to white */
-  font-size: 0.9rem;
-}
-
-footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-footer .social-icons a {
-  font-size: 24px;
-  margin: 0 15px;
-  color: white; /* Social icon color */
-}
-
-footer .social-icons a:hover {
-  color: #007bff; /* Social icon hover color */
-}
-
-footer .footer-links {
-  list-style-type: none;
-  padding: 0;
-}
-
-footer .footer-links li {
-  margin: 10px 0;
-}
-
-footer .footer-links a {
-  color: white; /* Ensure links in footer lists are white */
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-footer .footer-links a:hover {
-  color: #5e00c7; /* Hover effect color for footer links */
-}
 </style>
 
 
