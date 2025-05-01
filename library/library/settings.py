@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 from pathlib import Path
 
-# To keep secret keys in environment variables
+
 from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
