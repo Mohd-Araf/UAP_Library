@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Book borrowed successfully!</h2>
+    <p><strong>Book:</strong> {{ borrowed.book.name }}</p>
+    <p><strong>Author:</strong> {{ borrowed.book.author }}</p>
+    <p><strong>Borrowed on:</strong> {{ borrowed.borrow_date }}</p>
+    <p><strong>Return by:</strong> {{ borrowed.return_date }}</p>
+    {% if fine > 0 %}
+      <p class="text-danger"><strong>Late return fine:</strong> {{ fine }} units</p>
+    {% else %}
+      <p class="text-success"><strong>No fine.</strong></p>
+    {% endif %}
+    <a href="{% url 'borrow-book' %}" class="btn btn-secondary">Borrow Another Book</a>
+    <a href="{% url 'homepage' %}" class="btn btn-secondary">Return to Home</a>
+  </div>
+{% endblock %}
+
+</body>
+</html>
