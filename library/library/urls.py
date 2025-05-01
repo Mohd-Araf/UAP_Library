@@ -35,5 +35,6 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('rules/', views.library_rules, name='library_rules'),
     path('about/', views.about, name='about'),
+path('contact/', views.contact_view, name='contact'),
 
 ]

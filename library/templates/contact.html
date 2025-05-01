@@ -1,10 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+<style>
+  .contact-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 248, 220, 0.95);
+    border: 2px solid #d6b98c;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    font-family: 'Georgia', serif;
+    color: #4b3621;
+    animation: fadeIn 1.5s ease-in;
+  }
+
+  .contact-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Cinzel', serif;
+    border-bottom: 2px dashed #c2a477;
+    padding-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  .contact-info {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .contact-info strong {
+    color: #5a3c1d;
+  }
+
+  .social-icons {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin: 0 15px;
+    color: #4b3621;
+    font-size: 2rem;
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: #8b5e3c;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<!-- Font Awesome for icons (optional: include in base.html if not already) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<div class="contact-container">
+  <h2>Contact Us</h2>
+
+  <div class="contact-info">
+    <p><strong>Deputy Librarian (Library In-Charge)</strong></p>
+    <p>Email: <a href="mailto:d.librarian@uap-bd.edu">d.librarian@uap-bd.edu</a></p>
+    <p>Phone: +880-2-58157091-4, Ext: 950 / 952</p>
+    <p>Fax: +880-2-58157097</p>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/uapcentralibrary" target="_blank" title="Facebook">
+      <i class="fab fa-facebook-square"></i>
+    </a>
+    <a href="https://www.linkedin.com/school/university-of-asia-pacific" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="mailto:d.librarian@uap-bd.edu" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:+880258157091" title="Call Us">
+      <i class="fas fa-phone-alt"></i>
+    </a>
+  </div>
+</div>
+{% endblock %}
