@@ -37,4 +37,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
 path('contact/', views.contact_view, name='contact'),
 
-]
+path("", include(("base.urls", "base"), "base"))
+] + static(settings.STATIC_URL)
