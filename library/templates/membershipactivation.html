@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Membership Activation – UAP Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #e6f0fa, #f9f9f9);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 26px;
+      text-align: center;
+      color: #0a3d62;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 18px;
+      font-size: 17px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #0074cc;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    ul li ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    ul li ul li::before {
+      content: "•";
+      color: #444;
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .card {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Library Membership Activation – UAP Library</h1>
+    <ul>
+      <li>Submit completed membership form (available at circulation desk or online)</li>
+      <li>Provide required documents:
+        <ul>
+          <li>1 passport-size photo</li>
+          <li>Valid UAP ID</li>
+          <li>Active email and contact number</li>
+        </ul>
+      </li>
+      <li>Verify student/faculty/staff status</li>
+      <li>Library account is created and activated</li>
+      <li>Borrowing privileges and access to library resources are granted</li>
+      <li>Member is responsible for all items issued on their ID</li>
+    </ul>
+  </div>
+</body>
+</html>
