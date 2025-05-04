@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+    }
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .book-card {
+      background: white;
+      border-radius: 12px;
+      width: 240px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 20px;
+    }
+    .book-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .book-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .book-author {
+      color: #555;
+      margin: 5px 0;
+    }
+    .borrow-btn {
+      display: inline-block;
+      background: black;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .borrow-btn:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Available Books</h1>
+  <div class="book-container">
+    {% for book in books %}
+    <div class="book-card">
+      {% if book.image %}
+        <img src="{{ book.image.url }}" alt="{{ book.name }}">
+      {% endif %}
+      <div class="book-title">{{ book.name }}</div>
+      <div class="book-author">Author: {{ book.author }}</div>
+      {% if book.pdf %}
+        <a href="{{ book.pdf.url }}" target="_blank">View PDF</a><br>
+      {% endif %}
+      <a href="{% url 'borrow-book' book.id %}" class="borrow-btn">BORROW</a>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
