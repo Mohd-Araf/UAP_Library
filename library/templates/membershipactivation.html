@@ -1,85 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Library Membership Activation – UAP Library</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #e6f0fa, #f9f9f9);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+{% extends 'base.html' %}
 
-    .card {
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      width: 90%;
-    }
+{% block content %}
+<style>
+  body {
+    background: url('/static/images/library_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+  }
 
-    h1 {
-      font-size: 26px;
-      text-align: center;
-      color: #0a3d62;
-      margin-bottom: 30px;
-    }
+  .old-paper {
+    background: rgba(255, 248, 220, 0.95);
+    border: 2px solid #d6b98c;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    color: #3b2f1e;
+    margin: 60px auto;
+    max-width: 1000px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+  .old-paper h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    border-bottom: 2px dashed #c2a477;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #5b4321;
+    animation: slideDown 1s ease;
+  }
 
-    li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 18px;
-      font-size: 17px;
-      color: #333;
-      line-height: 1.6;
-    }
+  .old-paper ul {
+    list-style: none;
+    padding-left: 0;
+  }
 
-    li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #0074cc;
-      font-weight: bold;
-      font-size: 18px;
-    }
+  .old-paper li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+    color: #3b2f1e;
+    line-height: 1.7;
+  }
 
-    ul li ul {
-      margin-top: 10px;
-      padding-left: 20px;
-    }
+  .old-paper li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #0074cc;
+    font-weight: bold;
+    font-size: 18px;
+  }
 
-    ul li ul li::before {
-      content: "•";
-      color: #444;
-      font-size: 20px;
-    }
+  .old-paper ul li ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
 
-    @media screen and (max-width: 768px) {
-      .card {
-        padding: 20px;
-      }
+  .old-paper ul li ul li::before {
+    content: "•";
+    color: #444;
+    font-size: 18px;
+  }
 
-      h1 {
-        font-size: 22px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="old-paper">
     <h1>Library Membership Activation – UAP Library</h1>
     <ul>
       <li>Submit completed membership form (available at circulation desk or online)</li>
@@ -96,5 +97,5 @@
       <li>Member is responsible for all items issued on their ID</li>
     </ul>
   </div>
-</body>
-</html>
+</div>
+{% endblock %}
