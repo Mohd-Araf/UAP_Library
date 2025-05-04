@@ -35,6 +35,7 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('rules/', views.library_rules, name='library_rules'),
     path('about/', views.about, name='about'),
+    path('borrowing_policy/', views.borrowing_policy, name='borrowing_policy'),
     path('contact/', views.contact_view, name='contact'),
     path('library/', include('management.urls')),
 path("", include(("base.urls", "base"), "base"))
