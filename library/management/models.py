@@ -12,8 +12,8 @@ class Book(models.Model):
     booktype = models.ForeignKey(BookType, on_delete=models.CASCADE)
     author = models.CharField(max_length=100, blank=True, null=True)
     total_available = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='product_images/', blank=True, null=True)
-    pdf = models.FileField(upload_to='product_pdfs/', blank=True, null=True)
+    image = models.ImageField(upload_to='book_images/', blank=True, null=True)
+    pdf = models.FileField(upload_to='books_pdf/', blank=True, null=True)
 
     def __str__(self):
         return self.name

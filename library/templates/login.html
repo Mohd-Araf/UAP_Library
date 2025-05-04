@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | UAP Library</title>
 
-   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,70 +18,59 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl shadow-2xl max-w-6xl w-full grid md:grid-cols-2 overflow-hidden">
+    <div class="bg-white rounded-xl shadow-2xl max-w-xl w-full p-8 md:p-12">
         {% load static %}
-        <!-- Left Side -->
-        <div class="flex flex-col justify-center items-center p-8 bg-blue-50">
-            <a href="{% url 'homepage' %}">
-                <img src="{% static 'images/logo.png' %}" alt="logo" class="w-36 mb-8">
-            </a>
-            <img src="{% static 'images/log_in.png' %}" alt="Login Image"
-                class="w-full max-w-sm object-contain rounded-md shadow">
-        </div>
 
-        <!-- Right Side -->
-        <div class="p-8 md:p-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Sign in to Your Account</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Sign in to Your Account</h2>
 
-            <form id="loginForm" method="post" class="space-y-6">
-                {% csrf_token %}
+        <form id="loginForm" method="post" class="space-y-6">
+            {% csrf_token %}
 
-                <!-- Username / Email -->
-                <div>
-                    <label for="user_input" class="block text-sm font-medium text-gray-700">Username or UAP Email</label>
-                    <input id="user_input" name="user_input" type="text" required
-                        placeholder="Username or your @uap-bd.edu email"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 outline-none" />
-                    <p id="email-error" class="text-sm text-red-600 mt-1 hidden">Only @uap-bd.edu emails are allowed.</p>
-                </div>
-
-                <!-- Password -->
-                <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input id="password" name="password" type="password" required placeholder="Enter your password"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 outline-none" />
-                </div>
-
-                <!-- Remember + Forgot -->
-                <div class="flex justify-between items-center text-sm">
-                    <label class="flex items-center gap-2">
-                        <input type="checkbox" name="remember-me" class="h-4 w-4 rounded text-blue-600">
-                        Remember me
-                    </label>
-                    <a href="javascript:void(0);" class="text-blue-600 hover:underline font-medium">Forgot Password?</a>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit"
-                    class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow-md transition">
-                    Sign in
-                </button>
-
-                <!-- Signup -->
-                <p class="text-sm text-center text-gray-600 mt-4">
-                    Don't have an account?
-                    <a href="{% url 'signup' %}" class="text-blue-600 hover:underline font-medium">Register here</a>
-                </p>
-            </form>
-
-            <!-- Back Home -->
-            <div class="mt-6 text-center">
-                <a href="{% url 'homepage' %}"
-                    class="inline-flex items-center gap-2 text-sm text-blue-600 hover:underline font-medium">
-                    <box-icon name='arrow-back' color='#3b82f6'></box-icon>
-                    Back to Home
-                </a>
+            <!-- Username / Email -->
+            <div>
+                <label for="user_input" class="block text-sm font-medium text-gray-700">Username or UAP Email</label>
+                <input id="user_input" name="user_input" type="text" required
+                    placeholder="Username or your @uap-bd.edu email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 outline-none" />
+                <p id="email-error" class="text-sm text-red-600 mt-1 hidden">Only @uap-bd.edu emails are allowed.</p>
             </div>
+
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input id="password" name="password" type="password" required placeholder="Enter your password"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 outline-none" />
+            </div>
+
+            <!-- Remember + Forgot -->
+            <div class="flex justify-between items-center text-sm">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" name="remember-me" class="h-4 w-4 rounded text-blue-600">
+                    Remember me
+                </label>
+                <a href="javascript:void(0);" class="text-blue-600 hover:underline font-medium">Forgot Password?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow-md transition">
+                Sign in
+            </button>
+
+            <!-- Signup -->
+            <p class="text-sm text-center text-gray-600 mt-4">
+                Don't have an account?
+                <a href="{% url 'signup' %}" class="text-blue-600 hover:underline font-medium">Register here</a>
+            </p>
+        </form>
+
+        <!-- Back Home -->
+        <div class="mt-6 text-center">
+            <a href="{% url 'homepage' %}"
+                class="inline-flex items-center gap-2 text-sm text-blue-600 hover:underline font-medium">
+                <box-icon name='arrow-back' color='#3b82f6'></box-icon>
+                Back to Home
+            </a>
         </div>
     </div>
 
@@ -95,7 +83,6 @@
             const input = document.getElementById('user_input').value.trim();
             const error = document.getElementById('email-error');
 
-            // If it's an email, validate the domain
             if (input.includes('@')) {
                 if (!input.endsWith('@uap-bd.edu')) {
                     e.preventDefault();
@@ -104,7 +91,7 @@
                     error.classList.add('hidden');
                 }
             } else {
-                error.classList.add('hidden'); // treat as username
+                error.classList.add('hidden');
             }
         });
     </script>
