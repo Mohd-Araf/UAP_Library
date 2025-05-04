@@ -38,5 +38,7 @@ urlpatterns = [
     path('borrowing_policy/', views.borrowing_policy, name='borrowing_policy'),
     path('contact/', views.contact_view, name='contact'),
     path('library/', include('management.urls')),
-path("", include(("base.urls", "base"), "base"))
+    path('login/', views.login, name='login'),
+    path('signup/', views.signup, name='signup'),
+
 ] + static(settings.STATIC_URL)
