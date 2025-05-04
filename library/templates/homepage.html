@@ -8,7 +8,163 @@
 <head>
   <meta charset="UTF-8">
   <title>UAP Library</title>
+<!-- 🌟 Chat Toggle Button -->
+<button id="chat-toggle">💬 Chat</button>
 
+<!-- 🌟 Chatbot UI -->
+<div id="chatbox" style="display: none;">
+  <div class="chat-header">📚 UAP Library Chatbot</div>
+  <div class="chat-body">
+    <div id="chat-response" class="chat-message">Hi! Ask me anything about the library or university.</div>
+  </div>
+  <input id="chat-input" type="text" placeholder="Type your question..." />
+  <button id="chat-submit">Send</button>
+</div>
+
+<!-- 💅 CSS Styling -->
+<style>
+  #chat-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #8e24aa;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+    z-index: 999;
+  }
+
+  #chat-toggle:hover {
+    background: #6a1b9a;
+  }
+
+  #chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 25px;
+    width: 320px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 999;
+    animation: slideIn 0.4s ease;
+  }
+
+  .chat-header {
+    background: linear-gradient(45deg, #6a1b9a, #8e24aa);
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .chat-body {
+    padding: 15px;
+    background: #ffffff;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .chat-message {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  #chat-input {
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  #chat-submit {
+    width: calc(100% - 20px);
+    margin: 0 10px 10px;
+    padding: 10px;
+    background: #8e24aa;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #chat-submit:hover {
+    background: #6a1b9a;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<!-- ⚙️ JavaScript Logic -->
+<script>
+  const responses = {
+    "hi": "Hello! How can I help you today?",
+    "hello": "Hi there! Need any help regarding the library?",
+    "library timing": "UAP Library is open Sunday to Thursday, 9:00 AM - 9:00 PM. Saturday: 9:00 AM - 5:00 PM.",
+    "rules": "Library rules include: Maintain silence, no food, bring your ID, return books on time.",
+    "location": "The UAP Library is at 9th floor, A Block, 74/A Green Road, Dhaka."
+  };
+
+  function getResponse(input) {
+    const lowerInput = input.toLowerCase();
+
+    if (responses[lowerInput]) return responses[lowerInput];
+
+    // Keyword similarity match
+    if (lowerInput.includes("time") || lowerInput.includes("open"))
+      return responses["library timing"];
+    if (lowerInput.includes("rule") || lowerInput.includes("policy"))
+      return responses["rules"];
+    if (lowerInput.includes("where") || lowerInput.includes("location"))
+      return responses["location"];
+    if (lowerInput.includes("hi") || lowerInput.includes("hello"))
+      return responses["hello"];
+
+    return "Sorry, I didn't understand that. Please ask something about the library or university.";
+  }
+
+  // Toggle Chatbox
+  document.getElementById("chat-toggle").addEventListener("click", () => {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "none" ? "block" : "none";
+  });
+
+  // Chat Response
+  document.getElementById("chat-submit").addEventListener("click", () => {
+    const userInput = document.getElementById("chat-input").value.trim();
+    const botReply = getResponse(userInput);
+    document.getElementById("chat-response").innerText = botReply;
+    document.getElementById("chat-input").value = '';
+  });
+
+  // Enter Key Submit
+  document.getElementById("chat-input").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      document.getElementById("chat-submit").click();
+    }
+  });
+</script>
   <style>
     body {
       background-color: #f0f4f8;
