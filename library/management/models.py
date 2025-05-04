@@ -4,7 +4,7 @@ class BookType(models.Model):
     name = models.CharField(max_length=100, unique=True, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class Book(models.Model):
@@ -15,7 +15,7 @@ class Book(models.Model):
     image = models.ImageField(upload_to='product_images/', blank=True, null=True)
     pdf = models.FileField(upload_to='product_pdfs/', blank=True, null=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class BorrowBook(models.Model):
@@ -25,5 +25,5 @@ class BorrowBook(models.Model):
     returned = models.BooleanField(default=False)
     fine_amount = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 
-    def _str_(self):
+    def __str__(self):
         return self.book.name

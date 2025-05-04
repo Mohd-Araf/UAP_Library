@@ -8,15 +8,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="container">
-    <h2>Borrow a Book</h2>
+  <div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2>Borrow: {{ book.name }}</h2>
+    <p><strong>Author:</strong> {{ book.author }}</p>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Borrow</button>
+      <button type="submit" style="background-color: black; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+        Confirm Borrow
+      </button>
     </form>
   </div>
 {% endblock %}
+
 
 </body>
 </html>

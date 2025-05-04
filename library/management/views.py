@@ -32,3 +32,4 @@ from .models import BorrowBook
 def borrow_success_view(request, borrow_id):
     borrow = get_object_or_404(BorrowBook, id=borrow_id)
     return render(request, 'borrowing_book/success.html', {'borrow': borrow})
+

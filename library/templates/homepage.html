@@ -8,163 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <title>UAP Library</title>
-<!-- 🌟 Chat Toggle Button -->
-<button id="chat-toggle">💬 Chat</button>
 
-<!-- 🌟 Chatbot UI -->
-<div id="chatbox" style="display: none;">
-  <div class="chat-header">📚 UAP Library Chatbot</div>
-  <div class="chat-body">
-    <div id="chat-response" class="chat-message">Hi! Ask me anything about the library or university.</div>
-  </div>
-  <input id="chat-input" type="text" placeholder="Type your question..." />
-  <button id="chat-submit">Send</button>
-</div>
-
-<!-- 💅 CSS Styling -->
-<style>
-  #chat-toggle {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #8e24aa;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 18px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: background 0.3s ease;
-    z-index: 999;
-  }
-
-  #chat-toggle:hover {
-    background: #6a1b9a;
-  }
-
-  #chatbox {
-    position: fixed;
-    bottom: 80px;
-    right: 25px;
-    width: 320px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    font-family: 'Segoe UI', sans-serif;
-    z-index: 999;
-    animation: slideIn 0.4s ease;
-  }
-
-  .chat-header {
-    background: linear-gradient(45deg, #6a1b9a, #8e24aa);
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .chat-body {
-    padding: 15px;
-    background: #ffffff;
-    max-height: 200px;
-    overflow-y: auto;
-  }
-
-  .chat-message {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-
-  #chat-input {
-    width: calc(100% - 20px);
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    outline: none;
-  }
-
-  #chat-submit {
-    width: calc(100% - 20px);
-    margin: 0 10px 10px;
-    padding: 10px;
-    background: #8e24aa;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  #chat-submit:hover {
-    background: #6a1b9a;
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-</style>
-
-<!-- ⚙️ JavaScript Logic -->
-<script>
-  const responses = {
-    "hi": "Hello! How can I help you today?",
-    "hello": "Hi there! Need any help regarding the library?",
-    "library timing": "UAP Library is open Sunday to Thursday, 9:00 AM - 9:00 PM. Saturday: 9:00 AM - 5:00 PM.",
-    "rules": "Library rules include: Maintain silence, no food, bring your ID, return books on time.",
-    "location": "The UAP Library is at 9th floor, A Block, 74/A Green Road, Dhaka."
-  };
-
-  function getResponse(input) {
-    const lowerInput = input.toLowerCase();
-
-    if (responses[lowerInput]) return responses[lowerInput];
-
-    // Keyword similarity match
-    if (lowerInput.includes("time") || lowerInput.includes("open"))
-      return responses["library timing"];
-    if (lowerInput.includes("rule") || lowerInput.includes("policy"))
-      return responses["rules"];
-    if (lowerInput.includes("where") || lowerInput.includes("location"))
-      return responses["location"];
-    if (lowerInput.includes("hi") || lowerInput.includes("hello"))
-      return responses["hello"];
-
-    return "Sorry, I didn't understand that. Please ask something about the library or university.";
-  }
-
-  // Toggle Chatbox
-  document.getElementById("chat-toggle").addEventListener("click", () => {
-    const chatbox = document.getElementById("chatbox");
-    chatbox.style.display = chatbox.style.display === "none" ? "block" : "none";
-  });
-
-  // Chat Response
-  document.getElementById("chat-submit").addEventListener("click", () => {
-    const userInput = document.getElementById("chat-input").value.trim();
-    const botReply = getResponse(userInput);
-    document.getElementById("chat-response").innerText = botReply;
-    document.getElementById("chat-input").value = '';
-  });
-
-  // Enter Key Submit
-  document.getElementById("chat-input").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      document.getElementById("chat-submit").click();
-    }
-  });
-</script>
   <style>
     body {
       background-color: #f0f4f8;
@@ -328,6 +172,304 @@ footer .footer-links a:hover {
     <button type="submit">Search</button>
   </form>
 </div>
+
+<!-- 🌟 Chat Toggle Button -->
+<button id="chat-toggle">💬 Chat</button>
+
+<!-- 🌟 Chatbot UI -->
+<div id="chatbox" style="display: none;">
+  <div class="chat-header">
+    <!-- UAP Logo -->
+    <img src="https://admission.uap-bd.edu/ApplicationDocs/Institute/UAP_banner.png" alt="UAP Logo" style="width: 30px; height: 30px; margin-right: 10px;">
+    UAP Library Chatbot
+    <!-- Close (X) Button -->
+    <button id="chat-close" class="chat-close-btn">❌</button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div id="chat-response" class="chat-message bot-message">Hi! Ask me anything about the library or university.</div>
+  </div>
+  <div class="chat-footer">
+    <input id="chat-input" type="text" placeholder="Type your question..." />
+    <button id="chat-submit">Send</button>
+  </div>
+</div>
+
+<!-- 💅 CSS Styling -->
+<style>
+  /* Chat Toggle Button */
+  #chat-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #ff6f61;  /* Vibrant Coral */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+    z-index: 999;
+  }
+
+  #chat-toggle:hover {
+    background: #ff3b2e;  /* Darker Coral */
+  }
+
+  /* Chatbox Styling */
+  #chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 25px;
+    width: 340px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 999;
+    animation: slideIn 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+  }
+
+  /* Chat Header */
+  .chat-header {
+    background: linear-gradient(45deg, #37048e, #d000ff);  /* Gradient Coral */
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Close Button */
+  .chat-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+  }
+
+  .chat-close-btn:hover {
+    color: #ff3b2e;  /* Darker Coral */
+  }
+
+  /* Chat Body */
+  .chat-body {
+    padding: 15px;
+    background: #f1f1f1;  /* Soft Gray */
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 350px;  /* Restrict visible area to allow scrolling */
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Message Styling */
+  .chat-message {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    word-wrap: break-word;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .bot-message {
+    background: #f0f4f7;  /* Light Gray for Bot Messages */
+    align-self: flex-start;
+    margin-right: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-message {
+    background: #4caf50;  /* Fresh Green for User Messages */
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Input Styling */
+  #chat-input {
+    width: calc(100% - 20px);
+    padding: 12px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    margin: 10px;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Send Button */
+  #chat-submit {
+    background: #4caf50;  /* Matching Green */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    transition: background 0.3s ease;
+  }
+
+  #chat-submit:hover {
+    background: #388e3c;  /* Darker Green */
+  }
+
+  /* Footer Container for Input and Button */
+  .chat-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Animations */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Button Hover Animation */
+  #chat-submit {
+    transition: background-color 0.3s ease;
+  }
+</style>
+
+<!-- ⚙️ JavaScript Logic -->
+<script>
+  const responses = {
+    "hi": "Hello! How can I help you today?",
+    "hello": "Hi there! Need any help regarding the library?",
+    "library timing": "UAP Library is open Sunday to Thursday, 9:00 AM - 9:00 PM. Saturday: 9:00 AM - 5:00 PM.",
+    "rules": "Library rules include: Maintain silence, no food, bring your ID, return books on time.",
+    "location": "The UAP Library is located at 9th floor, A Block, 74/A Green Road, Dhaka.",
+    "contact": "You can contact UAP Library at: library@uap-bd.edu or call +8802-58157091-4 (Ext-952).",
+    "uap website": "Visit UAP's official website: [www.uap-bd.edu](https://www.uap-bd.edu/) for details on programs, departments, and admission.",
+    "uap departments": "UAP offers several programs including Computer Science, Engineering, Architecture, Business, Pharmacy, and more.",
+    "library rules": "Please maintain silence, no food or drinks allowed, carry your student ID, and return books on time.",
+    "uap history": "UAP was established in 1996 and is known for its quality education and commitment to student development.",
+    "library resources": "The UAP Library offers various resources such as books, e-journals, research papers, and a comfortable study environment.",
+    "book borrow": "To borrow books, log into the library system and follow the borrowing process.",
+    "library open": "The library is open Sunday to Thursday, 9:00 AM to 9:00 PM, and on Saturday from 9:00 AM to 5:00 PM."
+  };
+
+  let messageCount = 0;
+
+  function getResponse(input) {
+    const lowerInput = input.toLowerCase();
+
+    if (responses[lowerInput]) return responses[lowerInput];
+
+    // Keyword similarity match
+    if (lowerInput.includes("time") || lowerInput.includes("open"))
+      return responses["library timing"];
+    if (lowerInput.includes("rule") || lowerInput.includes("policy"))
+      return responses["rules"];
+    if (lowerInput.includes("where") || lowerInput.includes("location"))
+      return responses["location"];
+    if (lowerInput.includes("library"))
+      return responses["book borrow"];
+    if (lowerInput.includes("uap"))
+      return responses["uap website"];
+
+    return "Sorry, I didn't understand that. Please ask something about the library or university.";
+  }
+
+  // Toggle Chatbox
+  document.getElementById("chat-toggle").addEventListener("click", () => {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "none" ? "block" : "none";
+  });
+
+  // Close Chatbox
+  document.getElementById("chat-close").addEventListener("click", () => {
+    document.getElementById("chatbox").style.display = "none";
+  });
+
+  // Append Chat Message
+  function appendMessage(message, sender) {
+    const chatBody = document.getElementById("chat-body");
+    const newMessage = document.createElement("div");
+    newMessage.classList.add("chat-message", sender === "User" ? "user-message" : "bot-message");
+    newMessage.textContent = message;
+    chatBody.appendChild(newMessage);
+    chatBody.scrollTop = chatBody.scrollHeight;  // Scroll to the bottom
+
+    // Limit visible messages to 3
+    if (messageCount > 3) {
+      const firstMessage = chatBody.querySelector('.chat-message');
+      chatBody.removeChild(firstMessage);
+    } else {
+      messageCount++;
+    }
+  }
+
+  // Chat Response
+  document.getElementById("chat-submit").addEventListener("click", () => {
+    const userInput = document.getElementById("chat-input").value.trim();
+    if (userInput) {
+      appendMessage(userInput, "User");
+      const botReply = getResponse(userInput);
+      appendMessage(botReply, "Bot");
+      document.getElementById("chat-input").value = '';
+    }
+  });
+
+  // Enter Key Submit
+  document.getElementById("chat-input").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      document.getElementById("chat-submit").click();
+    }
+  });
+</script>
+
+
+
+
+
  <!-- Footer -->
     <footer>
        <footer class="text-center text-lg-start bg-body-tertiary text-muted">
