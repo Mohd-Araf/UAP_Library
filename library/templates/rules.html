@@ -2,63 +2,66 @@
 
 {% block content %}
 <style>
+  body {
+    background: url('/static/images/library_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+  }
+
   .old-paper {
-  border: 2px solid #d6b98c;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.1),
-    0 8px 20px rgba(0, 0, 0, 0.15),
-    0 12px 35px rgba(0, 0, 0, 0.2);
-  font-family: 'Georgia', serif;
-  color: #3b2b1f;
-  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-      /* background-color: #7a7768; */
-  animation: fadeIn 1.5s ease-in;
-}
+    background: rgba(255, 248, 220, 0.95); /* parchment style */
+    border: 2px solid #d6b98c;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    color: #3b2f1e;
+    margin: 60px auto;
+    max-width: 1000px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
 
-.old-paper h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 25px;
-  border-bottom: 2px dashed #c2a477;
-  padding-bottom: 10px;
-  color: #5b3a1e;
-  animation: slideDown 1s ease;
-}
+  .old-paper h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    border-bottom: 2px dashed #c2a477;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    text-align: center;
+    color: #5b4321;
+    animation: slideDown 1s ease;
+  }
 
-.old-paper ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
+  .old-paper ul {
+    list-style-type: square;
+    padding-left: 25px;
+    margin-top: 20px;
+  }
 
-.old-paper li {
-  margin: 15px 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  line-height: 1.7;
-  color: #5e4027;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
+  .old-paper li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    animation: fadeIn 1.8s ease-in;
+    color: #5e4027;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
 
-.old-paper li:hover {
-  transform: translateX(5px);
-  color: #a76f3f;
-}
+  .old-paper li:hover {
+    transform: translateX(5px);
+    color: #a76f3f;
+  }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 
 <div class="container mt-5">
